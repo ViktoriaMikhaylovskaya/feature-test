@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NotFound } from "src/pages";
+import { ThemeProvider } from "styled-components";
+import ErrorMessage from "./components/ErrorMessage";
+import { AppWrapper, GlobalStyle } from "./styles";
+import { color } from "./utils/pallete";
+import { ROUTES_MAP } from "./utils/routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={{ color }}>
+      <GlobalStyle />
+      <AppWrapper>
+        <ErrorMessage />
+        <BrowserRouter>
+          <Routes>
+            {ROUTES_MAP.map(({ path, component }) => (
+              <Route key={path} path={path} element={component} />
+            ))}
+
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </AppWrapper>
+    </ThemeProvider>
   );
 }
 
