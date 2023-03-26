@@ -10,8 +10,8 @@ import { Wrapper, Image, Info, Description, ImageWrapper, Content } from "./styl
 import { useAppDispatch } from "src/hooks/useAppDispatch";
 
 function Book() {
-    const { id = '' } = useParams();
     const dispatch = useAppDispatch();
+    const { id = '' } = useParams();
     const { book, isLoading } = useSelector(booksSelector);
 
     const bookInfo = {

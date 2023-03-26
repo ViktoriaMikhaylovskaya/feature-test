@@ -20,7 +20,6 @@ function BookCard({ item }: { item: IBook }) {
     };
 
     const onClickBookCard = () => {
-        dispatch(fetchBookAction(item.id || ''))
         navigate(`/book/${item.id}`);
     }
 

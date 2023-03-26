@@ -48,5 +48,6 @@ export const Description = styled.div`
     border-radius: 10px;
     padding: 10px;
     width: 100%;
-    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
 `

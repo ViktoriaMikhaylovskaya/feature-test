@@ -5,7 +5,7 @@ import { Error } from "./styles";
 function ErrorMessage() {
     const { error } = useSelector(booksSelector);
 
-    return (error)
+    return error
         ? <Error>{error}</Error>
         : null;
 }
